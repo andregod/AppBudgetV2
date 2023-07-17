@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/textViewNomeDespesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/design_default_color_primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="NomeDespesa" />
+
+    <TextView
+        android:id="@+id/textViewTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        app:layout_constraintStart_toStartOf="@+id/textViewNomeDespesa"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNomeDespesa" />
+
+    <TextView
+        android:id="@+id/textViewValorAcumulado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ValorAcumulado"
+        app:layout_constraintStart_toStartOf="@+id/textViewTipo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTipo" />
+
+    <TextView
+        android:id="@+id/textViewValorTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ValorTotal"
+        app:layout_constraintStart_toStartOf="@+id/textViewValorAcumulado"
+        app:layout_constraintTop_toBottomOf="@+id/textViewValorAcumulado" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
