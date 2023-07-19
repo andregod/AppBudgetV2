@@ -100,7 +100,7 @@ class BudgetContentProvider: ContentProvider() {
 
     companion object{
 
-        private const val AUTORIDADE="pt.ipg.sapatilhas"
+        private const val AUTORIDADE="com.example.appbudgetv2"
 
         private const val DESPESAS="despesas"
         private const val ITENS="itens"
