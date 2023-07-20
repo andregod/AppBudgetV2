@@ -7,7 +7,7 @@
     <string name="ver_despesas">Ver despesas</string>
     <string name="adicionar_itens">Adicionar itens</string>
     <string name="ver_notifica_es">Ver notificações</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cancelar">Cancele</string>
     <string name="eliminar">Delete</string>
@@ -17,4 +17,18 @@
     <string name="saving">Saving</string>
     <string name="graphics">Graphics</string>
     <string name="more">More</string>
+    <string name="adicionarDespesas">Add Expenses</string>
+    <string name="NameDespesas">Expense Name</string>
+    <string name="TipoDespesas">Expense type</string>
+    <string name="ValorTotal">Amount</string>
+    <string name="ErrorExpenseNew">Unable to store new expense</string>
+    <string name="AcertExpenseNew">Able to store new expense</string>
+    <string name="RequestNameExpense">must fill Expense Name</string>
+    <string name="RequestTypeExpense">must fill Expense Type</string>
+    <string name="RequestAmount">must fill Amount</string>
+    <string name="Aviso_NameExpense">the Expense Name must be between 1 and 30 letter  </string>
+    <string name="Aviso_TypeExpense">the Expense Type must be between 1 and 30 letter  </string>
+
+
+
 </resources>

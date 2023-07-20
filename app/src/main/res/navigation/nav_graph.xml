@@ -26,5 +26,21 @@
         android:id="@+id/listaDespesasFragment"
         android:name="com.example.appbudgetv2.ListaDespesasFragment"
         android:label="fragment_lista_despesas"
-        tools:layout="@layout/fragment_lista_despesas" />
+        tools:layout="@layout/fragment_lista_despesas" >
+        <action
+            android:id="@+id/action_listaDespesasFragment_to_adicionarDespesaFragment"
+            app:destination="@id/adicionarDespesaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adicionarDespesaFragment"
+        android:name="com.example.appbudgetv2.AdicionarDespesaFragment"
+        android:label="fragment_adicionar_despesa"
+        tools:layout="@layout/fragment_adicionar_despesa" >
+        <action
+            android:id="@+id/action_adicionarDespesaFragment_to_listaDespesasFragment"
+            app:destination="@id/listaDespesasFragment" />
+        <argument
+            android:name="despesa"
+            app:argType="com.example.appbudgetv2.Despesa" />
+    </fragment>
 </navigation>
