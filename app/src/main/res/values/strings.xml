@@ -9,4 +9,12 @@
     <string name="ver_notifica_es">Ver notificações</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancelar">Cancele</string>
+    <string name="eliminar">Delete</string>
+    <string name="guardar">Save</string>
+    <string name="adicionar">Add</string>
+    <string name="alterar">Altere</string>
+    <string name="saving">Saving</string>
+    <string name="graphics">Graphics</string>
+    <string name="more">More</string>
 </resources>
