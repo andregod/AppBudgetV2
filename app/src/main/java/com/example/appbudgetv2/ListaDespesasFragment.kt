@@ -37,11 +37,6 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     private var adapterDespesas : AdapterDespesas? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,6 +49,12 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         val loader = LoaderManager.getInstance(this)
         loader.initLoader(ID_LOADER_DESPESAS, null, this)
     }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
     companion object {
 
     }

@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
-    override fun OnViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,savedInstanceState)
 
         binding.buttonSavings.setOnClickListener {
@@ -35,6 +35,7 @@ class HomeFragment : Fragment() {
 
         val activity = activity as MainActivity
         activity.fragment = this
+
 
     }
 
