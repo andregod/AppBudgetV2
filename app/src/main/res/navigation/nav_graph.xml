@@ -17,7 +17,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.appbudgetv2.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_listaDespesasFragment"
+            app:destination="@id/listaDespesasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listaDespesasFragment"
         android:name="com.example.appbudgetv2.ListaDespesasFragment"
