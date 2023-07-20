@@ -66,7 +66,7 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         }
     }
     private fun adicionaDespesa() {
-        val acao = ListaDespesasFragmentDirections.actionBrandListFragmentToNewBrandFragment(null)
+        val acao = ListaDespesasFragmentDirections.actionListaDespesasFragmentToAdicionarDespesaFragment(null)
         findNavController().navigate(acao)
     }
     override fun onDestroyView() {
