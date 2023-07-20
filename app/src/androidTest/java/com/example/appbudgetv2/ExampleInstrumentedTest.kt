@@ -31,7 +31,7 @@ class ExampleInstrumentedTest {
 
     @Before
     fun apagaBaseDados() {
-        getAppContext().deleteDatabase(BudgetOpenHelper.NOME_BASE_DE_DADOS)
+        //getAppContext().deleteDatabase(BudgetOpenHelper.NOME_BASE_DE_DADOS)
     }
 
     @Test
