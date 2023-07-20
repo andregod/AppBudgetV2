@@ -13,6 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 private const val ID_LOADER_LIVROS = 0
 
+private val adapterDespesas: AdapterDespesas
+    get() {
+        val adapterDespesas = AdapterDespesas()
+        return adapterDespesas
+    }
+
 /**
  * A simple [Fragment] subclass.
  * Use the [ListaDespesasFragment.newInstance] factory method to
@@ -40,10 +46,12 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         _binding = null
     }
 
+    private var adapterDespesas = AdapterDespesas? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapterDespesas = AdapterDespesas()
+        adapterDespesas = AdapterDespesas(this)
         binding.recyclerViewDespesas.adapter = adapterDespesas
         binding.recyclerViewDespesas.layoutManager = LinearLayoutManager(requireContext())
 
@@ -65,10 +73,10 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+        adapterDespesas!!.cursor = null
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+        adapterDespesas!!.cursor = data
     }
 }

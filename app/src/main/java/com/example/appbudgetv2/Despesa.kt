@@ -10,7 +10,8 @@ data class Despesa (
     var tipo: String,
     var valorAcumulado: Double,
     var valorTotal: Double,
-    var id: Long=-1): Serializable {
+    var id: Long=-1
+) : Serializable {
 
     fun toContentValues(): ContentValues {
         val valores= ContentValues()
