@@ -5,9 +5,8 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
     android:background="@color/azulApp"
-    >
+    tools:context=".HomeFragment">
 
 
     <TextView
@@ -29,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <TextView
-            android:id="@+id/textViewNomeDespesa3"
+            android:id="@+id/textViewPlaceholder1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -40,10 +39,10 @@
             android:textColor="@color/design_default_color_primary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Mimimimimimimmimimimmimimimimimimimmimimimimimmimimimi" />
+            android:text="Mimimimimimimmimimimmimimimimimimimmimimimimimmimimimi" />
 
         <TextView
-            android:id="@+id/textViewNomeDespesa2"
+            android:id="@+id/textViewPlaceholder2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -54,26 +53,27 @@
             android:textColor="@color/design_default_color_primary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Mimimimimimimmimimimmimimimimimimimmimimimimimmimimimi" />
+            android:text="Mimimimimimimmimimimmimimimimimimimmimimimimimmimimimi" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textViewNomeDespesa"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewNaoSei"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@drawable/round_rectangle"
         android:padding="5dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/design_default_color_primary"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="464dp"
-        tools:text="Mimimimimimimmimimimmimimimimimimimmimimimimimmimimimi" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        android:text="Mimimimimimimmimimimmimimimimimimimmimimimimimmimimimi" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +81,7 @@
 
         <Button
             android:id="@+id/buttonSavings"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Savings" />
@@ -95,7 +95,7 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="More..." />
@@ -104,7 +104,7 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
