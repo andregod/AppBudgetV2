@@ -13,7 +13,7 @@ class AdapterDespesas(val fragment: ListaDespesasFragment)  : RecyclerView.Adapt
             notifyDataSetChanged()
         }
     inner class ViewHolderDespesa(contentor: View) : RecyclerView.ViewHolder(contentor) {
-        private val textViewNome = contentor.findViewById<TextView>(R.id.textViewNomeDespesa)
+        private val textViewNome = contentor.findViewById<TextView>(R.id.textViewNaoSei)
         private val textViewTipo = contentor.findViewById<TextView>(R.id.textViewTipo)
         private val textViewValorAcumulado = contentor.findViewById<TextView>(R.id.textViewValorAcumulado)
         private val textViewValorTotal = contentor.findViewById<TextView>(R.id.textViewValorTotal)
