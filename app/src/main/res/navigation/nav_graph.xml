@@ -18,4 +18,9 @@
         android:name="com.example.appbudgetv2.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/listaDespesasFragment"
+        android:name="com.example.appbudgetv2.ListaDespesasFragment"
+        android:label="fragment_lista_despesas"
+        tools:layout="@layout/fragment_lista_despesas" />
 </navigation>
