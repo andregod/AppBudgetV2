@@ -69,6 +69,7 @@
             android:id="@+id/TextInputEditTextValorTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/ValorTotal" />
+            android:hint="@string/ValorTotal"
+            android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

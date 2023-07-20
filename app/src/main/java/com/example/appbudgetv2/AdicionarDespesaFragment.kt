@@ -27,6 +27,10 @@ class AdicionarDespesaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val activity= activity as MainActivity
+        activity.fragment=this
+        activity.idMenuAtual=R.menu.menu_guardar_cancelar
+
         _binding = FragmentAdicionarDespesaBinding.inflate(inflater, container, false)
         return binding.root
 
