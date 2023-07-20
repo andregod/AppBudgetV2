@@ -41,6 +41,7 @@
             app:destination="@id/listaDespesasFragment" />
         <argument
             android:name="despesa"
-            app:argType="com.example.appbudgetv2.Despesa" />
+            app:argType="com.example.appbudgetv2.Despesa"
+            app:nullable="true" />
     </fragment>
 </navigation>

@@ -4,11 +4,13 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appbudgetv2.databinding.FragmentListaDespesasBinding
 
@@ -46,8 +48,26 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         binding.recyclerViewDespesas.adapter = adapterDespesas
         binding.recyclerViewDespesas.layoutManager = LinearLayoutManager(requireContext())
 
+        val activity= activity as MainActivity
+        activity.fragment=this
+        activity.idMenuAtual=R.menu.menu_lista
+
         val loader = LoaderManager.getInstance(this)
         loader.initLoader(ID_LOADER_DESPESAS, null, this)
+    }
+
+    fun processaOpcaoMenu(item: MenuItem) : Boolean {
+        return when (item.itemId) {
+            R.id.action_Add -> {
+                adicionaDespesa()
+                true
+            }
+            else -> false
+        }
+    }
+    private fun adicionaDespesa() {
+        val acao = ListaDespesasFragmentDirections.actionBrandListFragmentToNewBrandFragment(null)
+        findNavController().navigate(acao)
     }
     override fun onDestroyView() {
         super.onDestroyView()
