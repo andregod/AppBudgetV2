@@ -10,14 +10,9 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appbudgetv2.databinding.FragmentListaDespesasBinding
 
-private const val ID_LOADER_LIVROS = 0
-
-private val adapterDespesas: AdapterDespesas
-    get() {
-        val adapterDespesas = AdapterDespesas()
-        return adapterDespesas
-    }
+private const val ID_LOADER_DESPESAS = 0
 
 /**
  * A simple [Fragment] subclass.
@@ -28,6 +23,7 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
 
     private var _binding: FragmentListaDespesasBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,7 +42,7 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         _binding = null
     }
 
-    private var adapterDespesas = AdapterDespesas? = null
+    private var adapterDespesas : AdapterDespesas? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,7 +52,7 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         binding.recyclerViewDespesas.layoutManager = LinearLayoutManager(requireContext())
 
         val loader = LoaderManager.getInstance(this)
-        loader.initLoader(ID_LOADER_LIVROS, null, this)
+        loader.initLoader(ID_LOADER_DESPESAS, null, this)
     }
     companion object {
 
