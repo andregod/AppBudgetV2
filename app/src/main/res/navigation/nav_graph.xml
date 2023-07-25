@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_listaDespesasFragment_to_adicionarDespesaFragment"
             app:destination="@id/adicionarDespesaFragment" />
+        <action
+            android:id="@+id/action_listaDespesasFragment_to_verDespesaFragment"
+            app:destination="@id/verDespesaFragment" />
     </fragment>
     <fragment
         android:id="@+id/adicionarDespesaFragment"
@@ -43,5 +46,14 @@
             android:name="despesa"
             app:argType="com.example.appbudgetv2.Despesa"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/verDespesaFragment"
+        android:name="com.example.appbudgetv2.VerDespesaFragment"
+        android:label="fragment_ver_despesa"
+        tools:layout="@layout/fragment_ver_despesa" >
+        <argument
+            android:name="despesa"
+            app:argType="com.example.appbudgetv2.Despesa" />
     </fragment>
 </navigation>

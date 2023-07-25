@@ -45,13 +45,14 @@
         app:layout_constraintStart_toStartOf="@+id/textViewValorAcumulado"
         app:layout_constraintTop_toBottomOf="@+id/textViewValorAcumulado" />
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <Button
+        android:id="@+id/buttonDespesa"
         android:layout_width="50dp"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
+        android:textColor="#FFFFFFFF"
+        android:background="@drawable/baseline_arrow_circle_right_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_arrow_circle_right_24" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

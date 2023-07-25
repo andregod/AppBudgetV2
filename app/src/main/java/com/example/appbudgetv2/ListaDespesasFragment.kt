@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -26,6 +27,8 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     private var _binding: FragmentListaDespesasBinding? = null
     private val binding get() = _binding!!
 
+    var despesaSelecionada : Despesa? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,6 +39,8 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentListaDespesasBinding.inflate(inflater, container, false)
+
+
         return binding.root
     }
 
@@ -52,6 +57,7 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         activity.fragment=this
         activity.idMenuAtual=R.menu.menu_lista
 
+
         val loader = LoaderManager.getInstance(this)
         loader.initLoader(ID_LOADER_DESPESAS, null, this)
     }
@@ -64,6 +70,12 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             }
             else -> false
         }
+
+    }
+
+    private fun verDespesa() {
+        val acao = ListaDespesasFragmentDirections.actionListaDespesasFragmentToVerDespesaFragment(despesaSelecionada!!)
+        findNavController().navigate(acao)
     }
     private fun adicionaDespesa() {
         val acao = ListaDespesasFragmentDirections.actionListaDespesasFragmentToAdicionarDespesaFragment(null)
