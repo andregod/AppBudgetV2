@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -21,6 +22,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    //meter funcoes das navbars
+    fun showToolbar() {
+        supportActionBar?.show()
+    }
+
+    fun hideToolbar() {
+        supportActionBar?.hide()
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+
     var idMenuAtual : Int=R.menu.menu_main
         set(value){
             if(value!=field){
@@ -32,11 +47,30 @@ class MainActivity : AppCompatActivity() {
     var fragment : Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        //ativar a seta pra voltar atras
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        //desativar a toolbar num ecra especifico e ativar noutros
+        /*
+        supportFragmentManager.addOnBackStackChangedListener {
+            val fragment = supportFragmentManager.findFragmentById(R.id.welcomeFragment)
+            if (fragment is WelcomeFragment) {
+                supportActionBar?.hide()
+            } else {
+                supportActionBar?.show()
+            }
+        }*/
+
+
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)

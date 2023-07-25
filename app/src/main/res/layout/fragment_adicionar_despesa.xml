@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdicionarDespesaFragment">
+    tools:context=".AdicionarDespesaFragment"
+    android:background="@color/azulApp"
+    >
 
     <TextView
         android:id="@+id/textView4"
@@ -13,10 +15,11 @@
         android:layout_marginTop="32dp"
         android:text="@string/adicionarDespesas"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+       />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TextInputLayoutNomeDespesa"
@@ -27,13 +30,15 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/TextInputEditTextNomeDespesa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/NameDespesas" />
+            android:hint="@string/NameDespesas"
+            android:background="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -45,13 +50,15 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutNomeDespesa">
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutNomeDespesa"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/TextInputEditTextTipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/TipoDespesas" />
+            android:hint="@string/TipoDespesas"
+            android:background="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -63,13 +70,15 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutTipo">
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutTipo"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/TextInputEditTextValorTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ValorTotal"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:background="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,6 +28,8 @@ class WelcomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        // Hide the toolbar when this fragment is displayed
+        (activity as? MainActivity)?.hideToolbar()
 
         _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -47,6 +49,11 @@ class WelcomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        // Re-enable the toolbar when the fragment is destroyed
+        (activity as? MainActivity)?.showToolbar()
+
         _binding = null
+
+
     }
 }
