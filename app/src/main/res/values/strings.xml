@@ -29,5 +29,11 @@
     <string name="Aviso_NameExpense">the Expense Name must be between 1 and 30 letter  </string>
     <string name="Aviso_TypeExpense">the Expense Type must be between 1 and 30 letter  </string>
 
+    <string-array name="TiposDespesas">
+        <item>daily</item>
+        <item>weekly</item>
+        <item>monthly</item>
+        <item>yearly</item>
+    </string-array>
 
 </resources>

@@ -51,15 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutNomeDespesa"
-        android:background="@color/white">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TextInputEditTextTipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/TipoDespesas"
-            android:background="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
+        android:background="@color/white"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TextInputLayoutValorTotal"
@@ -81,4 +73,21 @@
             android:inputType="number|numberDecimal"
             android:background="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Spinner
+        android:id="@+id/spinnerType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:entries="@array/TiposDespesas"
+        android:minHeight="48dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutValorTotal"
+        app:layout_constraintEnd_toEndOf="@+id/TextInputLayoutValorTotal"
+        app:layout_constraintStart_toStartOf="@+id/TextInputLayoutValorTotal"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutNomeDespesa"
+        tools:ignore="RtlSymmetry" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

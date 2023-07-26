@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Spinner
 import android.widget.Toast
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.navigation.fragment.findNavController
 import com.example.appbudgetv2.databinding.FragmentAdicionarDespesaBinding
 
@@ -21,6 +23,7 @@ class AdicionarDespesaFragment : Fragment() {
         arguments?.let {
 
         }
+
     }
 
     override fun onCreateView(
@@ -30,6 +33,8 @@ class AdicionarDespesaFragment : Fragment() {
         val activity= activity as MainActivity
         activity.fragment=this
         activity.idMenuAtual=R.menu.menu_guardar_cancelar
+
+
 
         _binding = FragmentAdicionarDespesaBinding.inflate(inflater, container, false)
         return binding.root
@@ -73,17 +78,9 @@ class AdicionarDespesaFragment : Fragment() {
             binding.TextInputEditTextNomeDespesa.requestFocus()
             return
         }
-        val tipo = binding.TextInputEditTextTipo.text.toString()
-        if (tipo.isBlank()) {
-            binding.TextInputEditTextTipo.error = getString(R.string.RequestTypeExpense)
-            binding.TextInputEditTextTipo.requestFocus()
-            return
-        }
-        if (tipo.length > 30) {
-            binding.TextInputEditTextTipo.error = getString(R.string.Aviso_TypeExpense)
-            binding.TextInputEditTextTipo.requestFocus()
-            return
-        }
+
+        //val tipo = binding.TextInputEditTextTipo.text.toString()
+        val tipo = binding.spinnerType.selectedItem.toString()
         val ValorAcumulado = 0.0
 
         val ValorTotal = binding.TextInputEditTextValorTotal.text.toString()
