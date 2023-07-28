@@ -37,6 +37,7 @@ class VerDespesaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         _binding = FragmentVerDespesaBinding.inflate(inflater, container, false)
         return binding.root
@@ -51,9 +52,22 @@ class VerDespesaFragment : Fragment() {
 
         despesa = VerDespesaFragmentArgs.fromBundle(requireArguments()).despesa
 
-        binding.textViewVerNomeDespesa.text = despesa.nomeDespesa
-        binding.textViewVerTipoDespesa.text = despesa.tipo
-        binding.textViewVerValorDespesa.text = despesa.valorAcumulado.toString()
+
+
+
+        binding.NomeDespesa.setText(despesa.nomeDespesa)
+        binding.textViewVerTipoDespesa.setText(despesa.tipo)
+        binding.textViewVerValorDespesa.setText(despesa.valorAcumulado.toString())
+
+        val NomeDespesa = binding.NomeDespesa
+        NomeDespesa.isEnabled = false
+
+        val textViewVerTipoDespesa = binding.textViewVerTipoDespesa
+        textViewVerTipoDespesa.isEnabled = false
+
+        val textViewVerValorDespesa = binding.textViewVerValorDespesa
+        textViewVerValorDespesa.isEnabled = false
+
 
     }
     fun processaOpcaoMenu(item: MenuItem) : Boolean {
@@ -93,7 +107,7 @@ class VerDespesaFragment : Fragment() {
             Toast.makeText(requireContext(), getString(R.string.Despesa_eliminado_com_sucesso), Toast.LENGTH_LONG).show()
             voltaListaDespesa()
         } else {
-            Snackbar.make(binding.textViewVerNomeDespesa, getString(R.string.erro_eliminar_Despesa), Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(binding.NomeDespesa, getString(R.string.erro_eliminar_Despesa), Snackbar.LENGTH_INDEFINITE)
         }
     }
 

@@ -7,27 +7,100 @@
     android:layout_height="match_parent"
     tools:context=".VerDespesaFragment">
 
-    <TextView
-        android:id="@+id/textViewVerNomeDespesa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NomeDespesa"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/buttonWithIcon"
+        android:layout_width="34dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:drawableLeft="@drawable/baseline_edit_24"
+        android:padding="6dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutNomeDespesas"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayoutNomeDespesas"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/textViewVerTipoDespesa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipo de Despesa"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewVerNomeDespesa" />
+    <Button
+        android:id="@+id/buttonWithIcon2"
+        android:layout_width="34dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:drawableLeft="@drawable/baseline_edit_24"
+        android:padding="6dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonWithIcon"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/textViewVerValorDespesa"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/buttonWithIcon3"
+        android:layout_width="34dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:drawableLeft="@drawable/baseline_edit_24"
+        android:padding="6dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonWithIcon2"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutNomeDespesas"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Valor Despesa"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewVerTipoDespesa" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/NomeDespesa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NameDespesas" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNomeDespesas">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textViewVerTipoDespesa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TipoDespesas" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textViewVerValorDespesa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ValorTotal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
