@@ -1,5 +1,6 @@
 package com.example.appbudgetv2
 
+import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,7 +29,15 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     private val binding get() = _binding!!
 
     var despesaSelecionada : Despesa? = null
+        set(value) {
+            field = value
 
+            //val mostrarEliminarAlterar = (value != null)
+
+            //val activity = activity as MainActivity
+            //activity.mostraOpcaoMenu(R.id.action_editar, mostrarEliminarAlterar)
+
+        }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -49,9 +58,12 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapterDespesas = AdapterDespesas(this)
+       adapterDespesas = AdapterDespesas(this)
+
         binding.recyclerViewDespesas.adapter = adapterDespesas
         binding.recyclerViewDespesas.layoutManager = LinearLayoutManager(requireContext())
+
+
 
         val activity= activity as MainActivity
         activity.fragment=this
@@ -68,6 +80,7 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
                 adicionaDespesa()
                 true
             }
+
             else -> false
         }
 
@@ -87,9 +100,6 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
 
-    companion object {
-
-    }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
@@ -108,4 +118,6 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         adapterDespesas!!.cursor = data
     }
+
+
 }
