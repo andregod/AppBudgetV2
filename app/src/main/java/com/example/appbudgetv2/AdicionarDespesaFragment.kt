@@ -51,7 +51,7 @@ class AdicionarDespesaFragment : Fragment() {
                 guardar()
                 true
             }
-            R.id.action_guardar -> {
+            R.id.action_cancelar -> {
                 cancelar()
                 true
             }
