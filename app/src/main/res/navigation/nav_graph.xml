@@ -55,5 +55,11 @@
         <argument
             android:name="despesa"
             app:argType="com.example.appbudgetv2.Despesa" />
+        <action
+            android:id="@+id/action_verDespesaFragment_to_adicionarDespesaFragment"
+            app:destination="@id/adicionarDespesaFragment" />
+        <action
+            android:id="@+id/action_verDespesaFragment_to_listaDespesasFragment"
+            app:destination="@id/listaDespesasFragment" />
     </fragment>
 </navigation>

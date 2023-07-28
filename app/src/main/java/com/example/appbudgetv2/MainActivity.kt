@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         val opcaoProcessada = when (fragment) {
             is AdicionarDespesaFragment -> (fragment as AdicionarDespesaFragment).processaOpcaoMenu(item)
             is ListaDespesasFragment-> (fragment as ListaDespesasFragment).processaOpcaoMenu(item)
-
+            is VerDespesaFragment->(fragment as VerDespesaFragment).processaOpcaoMenu(item)
             else -> false
         }
         return if (opcaoProcessada) {

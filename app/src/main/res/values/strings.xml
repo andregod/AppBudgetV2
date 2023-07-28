@@ -36,4 +36,9 @@
         <item>yearly</item>
     </string-array>
 
+    <string name="Despesa_eliminado_com_sucesso">Expense successfully deleted</string>
+    <string name="erro_eliminar_Despesa">Error deleting Expense</string>
+    <string name="Aviso_Eliminar_Despesa">Are you sure you want to delete the Expense?</string>
+    <string name="Eliminar_Despesa_label">Delete Expense</string>
+
 </resources>
