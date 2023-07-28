@@ -36,6 +36,8 @@ class ListaDespesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
 
             //val activity = activity as MainActivity
             //activity.mostraOpcaoMenu(R.id.action_editar, mostrarEliminarAlterar)
+            val acao = ListaDespesasFragmentDirections.actionListaDespesasFragmentToVerDespesaFragment(despesaSelecionada!!)
+            findNavController().navigate(acao)
 
         }
     override fun onCreate(savedInstanceState: Bundle?) {
