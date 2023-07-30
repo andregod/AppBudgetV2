@@ -7,6 +7,7 @@ import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -68,8 +69,39 @@ class VerDespesaFragment : Fragment() {
         val textViewVerValorDespesa = binding.textViewVerValorDespesa
         textViewVerValorDespesa.isEnabled = false
 
+        val BotaoNomeDespesa=binding.buttonWithIcon
+
+        BotaoNomeDespesa.setOnClickListener {
+            NomeDespesa.isEnabled = true
+        }
+
+        val BotaotextViewVerTipoDespesa=binding.buttonWithIcon2
+
+        BotaotextViewVerTipoDespesa.setOnClickListener {
+            textViewVerTipoDespesa.isEnabled = true
+        }
+
+        val BotaotextViewVerValorDespesa=binding.buttonWithIcon3
+
+        BotaotextViewVerValorDespesa.setOnClickListener {
+            textViewVerValorDespesa.isEnabled = true
+        }
+
+        val rootView = binding.root
+        rootView.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                // Salva as alterações feitas nos campos de texto
+                salvarAlteracoes()
+                // Desabilita a edição dos campos de texto novamente
+                desabilitarEdicaoCampos()
+            }
+            true // Retorna true para indicar que o evento de toque foi tratado
 
     }
+
+
+
+}
     fun processaOpcaoMenu(item: MenuItem) : Boolean {
         return when (item.itemId) {
             R.id.action_Add -> {
@@ -121,6 +153,36 @@ class VerDespesaFragment : Fragment() {
         _binding = null
     }
 
+    private fun desabilitarEdicaoCampos() {
+        binding.NomeDespesa.isEnabled = false
+        binding.textViewVerTipoDespesa.isEnabled = false
+        binding.textViewVerValorDespesa.isEnabled = false
+    }
+    private fun salvarAlteracoes(){
+        val NomeDespesa = binding.NomeDespesa.text.toString()
+        val textViewVerTipoDespesa = binding.textViewVerTipoDespesa.text.toString()
+        val textViewVerValorDespesa = binding.textViewVerValorDespesa.text.toString().toDouble()
+
+        if( despesa.nomeDespesa!=NomeDespesa || despesa.tipo!=textViewVerTipoDespesa ||despesa.valorAcumulado != textViewVerValorDespesa) {
+            val despesa = despesa!!
+            despesa.nomeDespesa = NomeDespesa
+            despesa.tipo = textViewVerTipoDespesa
+            despesa.valorAcumulado = textViewVerValorDespesa
+
+            alteraDespesa(despesa)
+        }
+    }
+    private fun alteraDespesa(despesa: Despesa) {
+        val enderecoDespesa= Uri.withAppendedPath(BudgetContentProvider.ENDERECO_DESPESA, despesa.id.toString())
+        val despesaAlterados = requireActivity().contentResolver.update(enderecoDespesa, despesa.toContentValues(), null, null)
+
+        if (despesaAlterados == 1) {
+            Toast.makeText(requireContext(), R.string.AcertExpenseNew, Toast.LENGTH_LONG).show()
+
+        } else {
+            binding.NomeDespesa.error = getString(R.string.ErrorExpenseNew)
+        }
+    }
     companion object {
 
     }

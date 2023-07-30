@@ -21,8 +21,8 @@
     <string name="NameDespesas">Expense Name</string>
     <string name="TipoDespesas">Expense type</string>
     <string name="ValorTotal">Amount</string>
-    <string name="ErrorExpenseNew">Unable to store new expense</string>
-    <string name="AcertExpenseNew">Able to store new expense</string>
+    <string name="ErrorExpenseNew">Unable to store  expense</string>
+    <string name="AcertExpenseNew">Able to store  expense</string>
     <string name="RequestNameExpense">must fill Expense Name</string>
     <string name="RequestTypeExpense">must fill Expense Type</string>
     <string name="RequestAmount">must fill Amount</string>
@@ -40,5 +40,6 @@
     <string name="erro_eliminar_Despesa">Error deleting Expense</string>
     <string name="Aviso_Eliminar_Despesa">Are you sure you want to delete the Expense?</string>
     <string name="Eliminar_Despesa_label">Delete Expense</string>
+
 
 </resources>
