@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.appbudgetv2.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -21,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menu: Menu
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var bottomNav : BottomNavigationView
     //meter funcoes das navbars
     fun showToolbar() {
         supportActionBar?.show()
@@ -57,11 +60,13 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         //ativar a seta pra voltar atras
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.hide()
 
 
-        //desativar a toolbar num ecra especifico e ativar noutros
-        /*
-        supportFragmentManager.addOnBackStackChangedListener {
+
+
+
+        /*supportFragmentManager.addOnBackStackChangedListener {
             val fragment = supportFragmentManager.findFragmentById(R.id.welcomeFragment)
             if (fragment is WelcomeFragment) {
                 supportActionBar?.hide()
@@ -69,9 +74,45 @@ class MainActivity : AppCompatActivity() {
                 supportActionBar?.show()
             }
         }*/
+      //  supportActionBar?.hide()
 
 
+
+
+
+
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+        //desativar a toolbar num ecra especifico e ativar noutros
+
+        navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
+            if (nd.id == R.id.homeFragment || nd.id == R.id.listaDespesasFragment || nd.id == R.id.verDespesaFragment) {
+                bottomNav.visibility = View.VISIBLE
+            } else {
+                bottomNav.visibility = View.GONE
+            }
+        }
+
+
+            bottomNav.setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.action_savings -> {
+                        loadFragment(ListaDespesasFragment())
+                        true
+                    }
+                    R.id.action_graphics -> {
+                        //loadFragment(ChatFragment())
+                        true
+                    }
+                    R.id.action_more -> {
+                        // loadFragment(SettingFragment())
+                        true
+                    }
+
+                    else -> {false}
+                }
+            }
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
         //setContentView(R.layout.activity_main)
@@ -85,6 +126,8 @@ class MainActivity : AppCompatActivity() {
         if (item.itemId == R.id.action_settings) {
             return true
         }
+
+
 
         val opcaoProcessada = when (fragment) {
             is AdicionarDespesaFragment -> (fragment as AdicionarDespesaFragment).processaOpcaoMenu(item)
@@ -101,6 +144,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container,fragment)
+        transaction.commit()
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

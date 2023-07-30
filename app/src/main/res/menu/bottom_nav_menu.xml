@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/action_savings"
         android:icon="@drawable/baseline_attach_money_24"
         android:title="@string/saving" />
 
     <item
 
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/action_graphics"
         android:icon="@drawable/baseline_align_horizontal_left_24"
         android:title="@string/graphics" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/action_more"
         android:icon="@drawable/ic_notifications_24dp"
         android:title="@string/more" />
 
