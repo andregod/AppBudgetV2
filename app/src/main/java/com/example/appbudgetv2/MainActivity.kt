@@ -11,6 +11,7 @@ import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.appbudgetv2.databinding.ActivityMainBinding
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menu: Menu
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bottomNav : BottomNavigationView
+
 
     //meter funcoes das navbars
     fun showToolbar() {
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
 
 
     var idMenuAtual : Int=R.menu.menu_main
@@ -74,10 +76,12 @@ class MainActivity : AppCompatActivity() {
         }*/
       //  supportActionBar?.hide()
 
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        //desativar a toolbar num ecra especifico e ativar noutros
 
+        //desativar a toolbar num ecra especifico e ativar noutros
+        // as per defined in your FragmentContainerView
+        var navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+        var navController = navHostFragment.navController
+        var bottomNav : BottomNavigationView = findViewById(R.id.bottomNav)
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
             if (nd.id == R.id.homeFragment || nd.id == R.id.listaDespesasFragment || nd.id == R.id.verDespesaFragment) {
                 bottomNav.visibility = View.VISIBLE
@@ -90,9 +94,11 @@ class MainActivity : AppCompatActivity() {
             bottomNav.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.action_savings -> {
-                        val intent = Intent(this, ListaDespesasFragment::class.java)
-                        startActivity(intent)
-                        //loadFragment(ListaDespesasFragment())
+                        // Navigate using the IDs you defined in your Nav Graph
+                       // navController.navigate(R.id.listaDespesasFragment)
+                        //val intent = Intent(this, ListaDespesasFragment::class.java)
+                        //startActivity(intent)
+                        loadFragment(ListaDespesasFragment())
                         true
                     }
                     R.id.action_graphics -> {
@@ -140,7 +146,7 @@ class MainActivity : AppCompatActivity() {
 
     fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment_content_main,fragment)
+        transaction.replace(R.id.nav_host_fragment_content_main,fragment).addToBackStack(null)
         transaction.commit()
     }
 
