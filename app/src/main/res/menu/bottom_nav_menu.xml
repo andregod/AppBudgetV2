@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_savings"
         android:icon="@drawable/baseline_attach_money_24"
-        android:title="@string/saving" />
+        android:title="@string/saving"
+        app:cnb_iconColor="@color/azulApp"/>
 
     <item
-
         android:id="@+id/action_graphics"
         android:icon="@drawable/baseline_align_horizontal_left_24"
-        android:title="@string/graphics" />
+        android:title="@string/graphics"
+        app:cnb_iconColor="@color/black"/>
 
     <item
         android:id="@+id/action_more"
         android:icon="@drawable/ic_notifications_24dp"
-        android:title="@string/more" />
+        android:title="@string/more"
+        app:cnb_iconColor="@color/black"/>
 
 </menu>

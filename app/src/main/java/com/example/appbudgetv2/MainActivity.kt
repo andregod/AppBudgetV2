@@ -1,24 +1,19 @@
 package com.example.appbudgetv2
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDestination
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.appbudgetv2.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
-
-
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menu: Menu
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
+    var chipNavigationBar: ChipNavigationBar? = null
 
     //meter funcoes das navbars
     fun showToolbar() {
@@ -81,18 +76,21 @@ class MainActivity : AppCompatActivity() {
         // as per defined in your FragmentContainerView
         var navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         var navController = navHostFragment.navController
-        var bottomNav : BottomNavigationView = findViewById(R.id.bottomNav)
+        var chipNavigationBar : ChipNavigationBar = findViewById(R.id.bottomNav)
+        chipNavigationBar.setItemEnabled(0, false)
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
             if (nd.id == R.id.homeFragment || nd.id == R.id.listaDespesasFragment || nd.id == R.id.verDespesaFragment) {
-                bottomNav.visibility = View.VISIBLE
+                chipNavigationBar.visibility = View.VISIBLE
             } else {
-                bottomNav.visibility = View.GONE
+                chipNavigationBar.visibility = View.GONE
             }
         }
 
-
-            bottomNav.setOnItemSelectedListener {
-                when (it.itemId) {
+        chipNavigationBar.showBadge(R.id.action_savings,50)
+        chipNavigationBar.showBadge(R.id.action_graphics,100)
+        chipNavigationBar.showBadge(R.id.action_more,3)
+        chipNavigationBar.setOnItemSelectedListener {
+                when (it) {
                     R.id.action_savings -> {
                         // Navigate using the IDs you defined in your Nav Graph
                        navController.navigate(R.id.listaDespesasFragment)
