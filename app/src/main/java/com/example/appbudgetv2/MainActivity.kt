@@ -1,5 +1,6 @@
 package com.example.appbudgetv2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var bottomNav : BottomNavigationView
+
     //meter funcoes das navbars
     fun showToolbar() {
         supportActionBar?.show()
@@ -62,10 +64,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.hide()
 
-
-
-
-
         /*supportFragmentManager.addOnBackStackChangedListener {
             val fragment = supportFragmentManager.findFragmentById(R.id.welcomeFragment)
             if (fragment is WelcomeFragment) {
@@ -75,12 +73,6 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
       //  supportActionBar?.hide()
-
-
-
-
-
-
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -98,7 +90,9 @@ class MainActivity : AppCompatActivity() {
             bottomNav.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.action_savings -> {
-                        loadFragment(ListaDespesasFragment())
+                        val intent = Intent(this, ListaDespesasFragment::class.java)
+                        startActivity(intent)
+                        //loadFragment(ListaDespesasFragment())
                         true
                     }
                     R.id.action_graphics -> {
@@ -144,10 +138,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    private  fun loadFragment(fragment: Fragment){
+    fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container,fragment)
+        transaction.replace(R.id.nav_host_fragment_content_main,fragment)
         transaction.commit()
     }
 

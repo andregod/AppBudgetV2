@@ -1,10 +1,15 @@
 package com.example.appbudgetv2
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.appbudgetv2.databinding.FragmentWelcomeBinding
 
@@ -22,7 +27,6 @@ class WelcomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,16 +38,14 @@ class WelcomeFragment : Fragment() {
         _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
 
-
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSlide.setOnClickListener {
+            //(activity as MainActivity)?.loadFragment(HomeFragment())
             findNavController().navigate(R.id.action_welcomeFragment_to_homeFragment)
-        }
+       }
 
     }
 
@@ -56,4 +58,6 @@ class WelcomeFragment : Fragment() {
 
 
     }
+
+
 }

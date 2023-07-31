@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.AppBudgetV2" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="android:windowSplashScreenBackground">@color/azulApp</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_inset</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
