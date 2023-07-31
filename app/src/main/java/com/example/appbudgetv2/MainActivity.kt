@@ -95,10 +95,10 @@ class MainActivity : AppCompatActivity() {
                 when (it.itemId) {
                     R.id.action_savings -> {
                         // Navigate using the IDs you defined in your Nav Graph
-                       // navController.navigate(R.id.listaDespesasFragment)
+                       navController.navigate(R.id.listaDespesasFragment)
                         //val intent = Intent(this, ListaDespesasFragment::class.java)
                         //startActivity(intent)
-                        loadFragment(ListaDespesasFragment())
+                        //loadFragment(ListaDespesasFragment())
                         true
                     }
                     R.id.action_graphics -> {
