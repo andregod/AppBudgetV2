@@ -29,9 +29,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,savedInstanceState)
 
-        binding.buttonSavings.setOnClickListener {
-        findNavController().navigate(R.id.action_homeFragment_to_listaDespesasFragment)
-        }
+       //binding.buttonSavings.setOnClickListener {
+       // findNavController().navigate(R.id.action_homeFragment_to_listaDespesasFragment)
+      //  }
 
         val activity = activity as MainActivity
         activity.fragment = this

@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var bottomNav : BottomNavigationView
+
     //meter funcoes das navbars
     fun showToolbar() {
         supportActionBar?.show()
@@ -62,10 +63,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.hide()
 
-
-
-
-
         /*supportFragmentManager.addOnBackStackChangedListener {
             val fragment = supportFragmentManager.findFragmentById(R.id.welcomeFragment)
             if (fragment is WelcomeFragment) {
@@ -75,12 +72,6 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
       //  supportActionBar?.hide()
-
-
-
-
-
-
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -144,10 +135,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    private  fun loadFragment(fragment: Fragment){
+    fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container,fragment)
+        transaction.replace(R.id.nav_host_fragment_content_main,fragment)
         transaction.commit()
     }
 
