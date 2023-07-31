@@ -58,7 +58,12 @@ class VerDespesaFragment : Fragment() {
 
         binding.NomeDespesa.setText(despesa.nomeDespesa)
         binding.textViewVerTipoDespesa.setText(despesa.tipo)
+        binding.textViewVerValorMaximoDespesa.setText(despesa.valorTotal.toString())
         binding.textViewVerValorDespesa.setText(despesa.valorAcumulado.toString())
+
+        val valorAcumulado = binding.textViewVerValorDespesa
+        valorAcumulado.isEnabled = false
+
 
         val NomeDespesa = binding.NomeDespesa
         NomeDespesa.isEnabled = false
@@ -66,8 +71,8 @@ class VerDespesaFragment : Fragment() {
         val textViewVerTipoDespesa = binding.textViewVerTipoDespesa
         textViewVerTipoDespesa.isEnabled = false
 
-        val textViewVerValorDespesa = binding.textViewVerValorDespesa
-        textViewVerValorDespesa.isEnabled = false
+        val textViewVerValorMaximoDespesa = binding.textViewVerValorMaximoDespesa
+        textViewVerValorMaximoDespesa.isEnabled = false
 
         val BotaoNomeDespesa=binding.buttonWithIcon
 
@@ -84,7 +89,7 @@ class VerDespesaFragment : Fragment() {
         val BotaotextViewVerValorDespesa=binding.buttonWithIcon3
 
         BotaotextViewVerValorDespesa.setOnClickListener {
-            textViewVerValorDespesa.isEnabled = true
+            textViewVerValorMaximoDespesa.isEnabled = true
         }
 
         val rootView = binding.root
@@ -156,18 +161,19 @@ class VerDespesaFragment : Fragment() {
     private fun desabilitarEdicaoCampos() {
         binding.NomeDespesa.isEnabled = false
         binding.textViewVerTipoDespesa.isEnabled = false
-        binding.textViewVerValorDespesa.isEnabled = false
+        binding.textViewVerValorMaximoDespesa.isEnabled = false
     }
     private fun salvarAlteracoes(){
         val NomeDespesa = binding.NomeDespesa.text.toString()
         val textViewVerTipoDespesa = binding.textViewVerTipoDespesa.text.toString()
-        val textViewVerValorDespesa = binding.textViewVerValorDespesa.text.toString().toDouble()
+        val textViewVerValorMaximoDespesa = binding.textViewVerValorMaximoDespesa.text.toString().toDouble()
 
-        if( despesa.nomeDespesa!=NomeDespesa || despesa.tipo!=textViewVerTipoDespesa ||despesa.valorAcumulado != textViewVerValorDespesa) {
+        if( despesa.nomeDespesa!=NomeDespesa || despesa.tipo!=textViewVerTipoDespesa ||despesa.valorAcumulado != textViewVerValorMaximoDespesa) {
             val despesa = despesa!!
             despesa.nomeDespesa = NomeDespesa
             despesa.tipo = textViewVerTipoDespesa
-            despesa.valorAcumulado = textViewVerValorDespesa
+            despesa.valorAcumulado = despesa.valorAcumulado
+            despesa.valorTotal=textViewVerValorMaximoDespesa
 
             alteraDespesa(despesa)
         }
