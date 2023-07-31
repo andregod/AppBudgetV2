@@ -1,5 +1,6 @@
 package com.example.appbudgetv2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -89,7 +90,9 @@ class MainActivity : AppCompatActivity() {
             bottomNav.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.action_savings -> {
-                        loadFragment(ListaDespesasFragment())
+                        val intent = Intent(this, ListaDespesasFragment::class.java)
+                        startActivity(intent)
+                        //loadFragment(ListaDespesasFragment())
                         true
                     }
                     R.id.action_graphics -> {
