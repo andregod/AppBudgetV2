@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/containerWelcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize"
@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewWelcomeBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome back!"
@@ -18,7 +18,8 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
+        app:layout_constraintTop_toTopOf="@+id/frameLayout"
+        />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -44,30 +45,33 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5">
+        app:layout_constraintTop_toBottomOf="@+id/textViewWelcomeBack">
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/sun" />
+            app:srcCompat="@drawable/sun"
+            />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text=" 30ºC "
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewLocal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text=" Faro "
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -78,6 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
 
         <Button
             android:id="@+id/buttonSlide"

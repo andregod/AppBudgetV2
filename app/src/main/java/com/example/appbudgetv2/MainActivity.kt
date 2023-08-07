@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDestination
@@ -12,7 +16,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.appbudgetv2.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 
@@ -114,7 +117,17 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
         //setContentView(R.layout.activity_main)
+
+        // Declaring and initializing
+        // the elements from the layout file
+        val mTextViewWelcome = findViewById<TextView>(R.id.textViewWelcomeBack)
+        val mTextViewTemp = findViewById<TextView>(R.id.textViewTemp)
+        val mTextViewLocal = findViewById<TextView>(R.id.textViewLocal)
+        val containerWelcome = findViewById<ConstraintLayout>(R.id.containerWelcome)
+
+
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
